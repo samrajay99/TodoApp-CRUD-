@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const UpdateTask = () => {
   const {id}=useParams()
-   const[tasks, setTasks] = useState()
+
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const navigate =useNavigate()
@@ -13,24 +13,25 @@ const UpdateTask = () => {
     axios.get('http://localhost:3001/getTask/'+ id)
     .then(result=>{console.log(result)
       setTasks(result.data)
-      setTitle(result.data.title)
+      setTitle(result.data.task)
       setDescription(result.data.description)
     })
     .catch(err=>console.log(err))
 
-  },[])
+  },[id])
 
   const Update = async (e) => {
     e.preventDefault()
     axios.put('http://localhost:3001/updateTask/'+id, {title, description})
          .then((response) =>{ 
           console.log(response)
+          alert('Task Updated Successfully')
+    setTitle('')
+    setDescription('')
           navigate('/')
         })
          .catch((error) => console.error( error))
-    alert('Task Updated Successfully')
-    setTitle('')
-    setDescription('')
+    
   }
   return (
     <div>

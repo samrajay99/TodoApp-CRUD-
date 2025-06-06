@@ -1,5 +1,5 @@
 const express = require('express');
-const moongoose = require('mongoose');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const TaskModel = require('./models/Tasks');
 
@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-moongoose.connect('mongodb://127.0.0.1:27017/taskdb')
+mongoose.connect('mongodb://127.0.0.1:27017/taskdb')
 
 app.get('/',(req,res)=>{
   TaskModel.find({})
