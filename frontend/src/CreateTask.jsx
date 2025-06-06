@@ -1,18 +1,24 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const CreateTask = () => {
   const[tasks, setTasks] = useState()
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const navigate =useNavigate()
+  
   const Submit = async (e) => {
     e.preventDefault()
     axios.post('http://localhost:3001/createTask',{title, description})
-         .then((response) => console.log(response))
+         .then((response) =>{ 
+          console.log(response)
+          navigate('/')
+        })
+         
          .catch((error) => console.error( error))
-           
-    setTasks(data)
+    alert('Task Created Successfully')
     setTitle('')
     setDescription('')
   }

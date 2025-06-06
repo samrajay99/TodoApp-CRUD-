@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from 'react'
 import './App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,15 +8,14 @@ import UpdateTask from './UpdateTask'
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Tasks/>} />
+          <Route path="/" element={<Tasks/>}/>
           <Route path="/create" element={<CreateTask/>} />
-          <Route path="/update" element={<UpdateTask/>} />
+          <Route path="/update/:id" element={<UpdateTask/>} />
         </Routes>
       </BrowserRouter>
     </div>
