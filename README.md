@@ -22,7 +22,7 @@ A task management application with full **Create, Read, Update, Delete (CRUD)** 
 
 ## 🛠️ Tech Stack
 
-**Frontend:** React.js, [CSS3 / Tailwind — update]
+**Frontend:** ReactJS, [CSS3 / Tailwind — update]
 **Backend:** Node.js, Express.js
 **Database:** MongoDB
 **Other tools:** Postman, Git
