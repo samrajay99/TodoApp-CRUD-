@@ -1,6 +1,6 @@
-﻿# ✅ TodoApp-CRUD
+﻿# Daymark
 
-A task management application with full **Create, Read, Update, Delete (CRUD)** functionality — built to demonstrate clean full-stack architecture and state management.
+A calm, focused task workspace for turning a busy day into a clear next step. Daymark is a full-stack Next.js application with a responsive interface, complete task management, and MongoDB persistence.
 
 <!-- ![demo](./screenshots/demo.gif) -->
 
@@ -9,23 +9,25 @@ A task management application with full **Create, Read, Update, Delete (CRUD)** 
 
 ---
 
-## ✨ Features
+## Features
 
 - Add, edit, and delete tasks
 - Mark tasks as complete/incomplete
-- Persistent storage (MongoDB) — tasks survive a page refresh
-- Filter tasks (All / Active / Completed)
-- Responsive, clean UI
-- (Update this list to match what you actually built)
+- Search tasks instantly
+- Filter by all, active, or completed
+- Set low, medium, or high priority
+- Add optional due dates
+- View completion progress at a glance
+- Responsive layout for desktop and mobile
+- MongoDB persistence, with an in-memory fallback for local development
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend:** ReactJS, [CSS3 / Tailwind — update]
-**Backend:** Node.js, Express.js
-**Database:** MongoDB
-**Other tools:** Postman, Git
+**App:** Next.js App Router, React, Route Handlers
+**Database:** MongoDB with Mongoose
+**UI:** CSS, Lucide React
 
 ---
 
@@ -40,60 +42,43 @@ A task management application with full **Create, Read, Update, Delete (CRUD)** 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- MongoDB (local or Atlas)
+- Node.js 18+
+- MongoDB local or MongoDB Atlas for persistent storage
 
 ### Installation
 
 ```bash
-git clone https://github.com/samrajay99/TodoApp-CRUD.git
-cd TodoApp-CRUD
-
-# Backend
-cd server
-npm install
-
-# Frontend
-cd ../client
 npm install
 ```
 
 ### Environment Variables
 
-`server/.env`:
+`.env.local`:
 ```
-MONGO_URI=your_mongodb_connection_string
-PORT=5000
+MONGODB_URI=mongodb://127.0.0.1:27017/taskdb
 ```
 
 ### Run Locally
 
 ```bash
-# Backend
-cd server
 npm run dev
-
-# Frontend (separate terminal)
-cd client
-npm start
 ```
 
-Visit `http://localhost:3000`.
+Visit `http://localhost:3000`. Without MongoDB, the app uses an in-memory store for local development.
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-TodoApp-CRUD/
-├── client/
-│   ├── src/
-│   │   ├── components/
-│   │   └── App.js
-├── server/
-│   ├── models/
-│   ├── routes/
-│   └── server.js
+TodoApp-CRUD-/
+├── app/
+│   ├── api/tasks/
+│   ├── globals.css
+│   ├── layout.jsx
+│   └── page.jsx
+├── lib/db.js
+├── models/Task.js
 └── README.md
 ```
 
@@ -103,10 +88,10 @@ TodoApp-CRUD/
 
 | Method | Endpoint | Description |
 |---|---|---|
-| GET | `/api/todos` | Get all todos |
-| POST | `/api/todos` | Create a new todo |
-| PUT | `/api/todos/:id` | Update a todo |
-| DELETE | `/api/todos/:id` | Delete a todo |
+| GET | `/api/tasks` | Get all tasks |
+| POST | `/api/tasks` | Create a task |
+| PATCH | `/api/tasks/:id` | Update a task |
+| DELETE | `/api/tasks/:id` | Delete a task |
 
 ---
 
